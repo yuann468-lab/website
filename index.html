@@ -1,0 +1,378 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Web Profil & Etalase Produk Sentra UMKM Batik Tulis Tuban</title>
+    <style>
+        /* Reset margin dan padding default */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: Arial, sans-serif;
+        }
+
+        body {
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+            width: 100%;
+            background-color: #fdf8f5;
+            color: #333;
+        }
+
+        /* 1. Header Bagian Atas / Banner Promo Produk */
+        header {
+            background-color: #4a2e18;
+            color: #ffffff;
+            height: 25vh;
+            width: 100%;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            padding: 20px;
+            animation: fadeInDown 1.2s ease-in-out;
+        }
+
+        header h1 {
+            font-size: 2rem;
+            color: #d4a373;
+            margin-bottom: 8px;
+        }
+
+        /* Animasi Keyframes untuk Banner */
+        @keyframes fadeInDown {
+            from {
+                opacity: 0;
+                transform: translateY(-20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* 2. Bilah Navigasi Menu */
+        nav {
+            background-color: #b85414;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 12px 16px;
+            gap: 24px;
+        }
+
+        nav a {
+            color: #ffffff;
+            text-decoration: none;
+            font-size: 16px;
+            font-weight: 500;
+            transition: opacity 0.2s;
+        }
+
+        nav a:hover {
+            opacity: 0.8;
+        }
+
+        /* 3. Area Konten Utama */
+        main {
+            background-color: #fff2cc;
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding: 40px 20px;
+            gap: 40px;
+        }
+
+        .section-title {
+            color: #4a2e18;
+            margin-bottom: 15px;
+            text-align: center;
+        }
+
+        /* Kontainer Galeri Kartu Batik */
+        .card-container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 30px;
+            width: 100%;
+            max-width: 1100px;
+            flex-wrap: wrap;
+        }
+
+        /* Bentuk umum untuk setiap kartu motif */
+        .card {
+            width: 260px;
+            background-color: #ffffff;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            text-align: center;
+        }
+
+        .card img {
+            width: 100%;
+            height: 160px;
+            object-fit: cover;
+            transition: transform 0.4s ease;
+        }
+
+        .card-body {
+            padding: 15px;
+        }
+
+        .card-body h3 {
+            font-size: 1.1rem;
+            color: #4a2e18;
+            margin-bottom: 5px;
+        }
+
+        .card-body p {
+            font-size: 0.9rem;
+            color: #666;
+        }
+
+        /* Transisi Zoom Kartu Galeri saat Hover */
+        .card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 16px rgba(0,0,0,0.2);
+        }
+
+        .card:hover img {
+            transform: scale(1.1); /* Efek Zoom */
+        }
+
+        /* Tabel Rincian Bahan & Harga */
+        .tabel-wrapper {
+            width: 100%;
+            max-width: 800px;
+        }
+
+        .tabel-harga {
+            width: 100%;
+            border-collapse: collapse;
+            background-color: #ffffff;
+            border-radius: 8px;
+            overflow: hidden;
+        }
+
+        .tabel-harga th, .tabel-harga td {
+            border: 1px solid #ddd;
+            padding: 12px;
+            text-align: left;
+        }
+
+        .tabel-harga th {
+            background-color: #4a2e18;
+            color: #ffffff;
+        }
+
+        /* Area Video Proses Pembatikan */
+        .video-container {
+            width: 100%;
+            max-width: 700px;
+            background-color: #000;
+            border-radius: 8px;
+            overflow: hidden;
+        }
+
+        .video-container video {
+            width: 100%;
+            display: block;
+        }
+
+        /* Form Reservasi & Order Kain Batik */
+        .form-order {
+            width: 100%;
+            max-width: 600px;
+            background-color: #ffffff;
+            padding: 25px;
+            border-radius: 8px;
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.05);
+        }
+
+        .form-order label {
+            font-weight: bold;
+            font-size: 0.9rem;
+            color: #4a2e18;
+        }
+
+        .form-order input, .form-order select, .form-order textarea {
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            width: 100%;
+        }
+
+        .form-order button {
+            background-color: #b85414;
+            color: white;
+            padding: 12px;
+            border: none;
+            border-radius: 4px;
+            font-weight: bold;
+            cursor: pointer;
+            transition: background-color 0.2s;
+        }
+
+        .form-order button:hover {
+            background-color: #4a2e18;
+        }
+
+        /* 4. Footer Bagian Bawah */
+        footer {
+            background-color: #ffbf00;
+            color: #2b1808;
+            height: 80px;
+            width: 100%;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            font-weight: 500;
+        }
+
+        /* Penyesuaian responsif layar kecil (HP) */
+        @media (max-width: 768px) {
+            nav {
+                flex-direction: column;
+                gap: 10px;
+            }
+
+            .card-container {
+                gap: 20px;
+            }
+
+            .card {
+                width: 100%;
+                max-width: 300px;
+            }
+
+            header {
+                height: auto;
+                padding: 30px 15px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- 1. Bagian Atas / Banner Promo Produk -->
+    <header id="promo">
+        <h1>Sentra UMKM Batik Tulis Tuban</h1>
+        <p>Promo Spesial Diskon 20% Untuk Pembelian Motif Gedog Minggu Ini!</p>
+    </header>
+
+    <!-- 2. Bilah Navigasi Menu -->
+    <nav>
+        <a href="#promo">Promo</a>
+        <a href="#galeri">Galeri Motif</a>
+        <a href="#harga">Rincian Harga</a>
+        <a href="#video">Proses Batik</a>
+        <a href="#order">Form Order</a>
+    </nav>
+
+    <!-- 3. Area Konten Utama -->
+    <main>
+        
+        <!-- Galeri Kartu Motif Batik (dengan Transisi Zoom) -->
+        <section id="galeri" style="width: 100%; display: flex; flex-direction: column; align-items: center;">
+            <h2 class="section-title">Galeri Motif Batik</h2>
+            <div class="card-container">
+                <div class="card">
+                    <img src="batik-gedog.jpg" alt="Batik Gedog">
+                    <div class="card-body">
+                        <h3>Batik Gedog</h3>
+                        <p>Motif khas tenun tangan asli Tuban.</p>
+                    </div>
+                </div>
+                <div class="card">
+                    <img src="batik-lokchan.jpg" alt="Batik Lok Chan">
+                    <div class="card-body">
+                        <h3>Batik Lok Chan</h3>
+                        <p>Perpaduan budaya lokal dan pesisir.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Tabel Rincian Bahan & Harga Kain -->
+        <section id="harga" class="tabel-wrapper">
+            <h2 class="section-title">Tabel Rincian Bahan & Harga</h2>
+            <table class="tabel-harga">
+                <thead>
+                    <tr>
+                        <th>Jenis Motif</th>
+                        <th>Bahan Kain</th>
+                        <th>Ukuran</th>
+                        <th>Harga</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Batik Gedog Asli</td>
+                        <td>Kain Tenun Cotton Gedog</td>
+                        <td>2m x 1.15m</td>
+                        <td>Rp 450.000</td>
+                    </tr>
+                    <tr>
+                        <td>Batik Lok Chan</td>
+                        <td>Kain Sutra / Primissima</td>
+                        <td>2m x 1.15m</td>
+                        <td>Rp 350.000</td>
+                    </tr>
+                </tbody>
+            </table>
+        </section>
+
+        <!-- Video Proses Pembatikan Lokal -->
+        <section id="video" style="width: 100%; display: flex; flex-direction: column; align-items: center;">
+            <h2 class="section-title">Video Proses Pembatikan Lokal</h2>
+            <div style="width: 100%; max-width: 600px; display: flex; justify-content: center;">
+                <iframe width="600" height="340" src="https://www.youtube.com/embed/cQ23gLNBVRs" title="TAHAPAN PEMBUATAN BATIK TULIS SEBAGAI WARISAN BUDAYA INDONESIA" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+            </div>
+        </section>
+
+        <!-- Form Reservasi / Order Kain Batik -->
+        <section id="order" style="width: 100%; display: flex; flex-direction: column; align-items: center;">
+            <h2 class="section-title">Form Reservasi / Order Kain</h2>
+            <form class="form-order">
+                <label for="nama">Nama Lengkap:</label>
+                <input type="text" id="nama" placeholder="Masukkan nama Anda" required>
+
+                <label for="motif">Pilih Motif Batik:</label>
+                <select id="motif">
+                    <option value="gedog">Batik Gedog Asli</option>
+                    <option value="lokchan">Batik Lok Chan</option>
+                </select>
+
+                <label for="jumlah">Jumlah (Lembar):</label>
+                <input type="number" id="jumlah" value="1" min="1">
+
+                <label for="alamat">Catatan / Alamat Pengiriman:</label>
+                <textarea id="alamat" rows="3" placeholder="Alamat lengkap..."></textarea>
+
+                <button type="submit">Kirim Order Sekarang</button>
+            </form>
+        </section>
+
+    </main>
+
+    <!-- 4. Bagian Bawah / Footer Identitas Usaha -->
+    <footer>
+        <p>&copy; 2026 Sentra UMKM Batik Tulis Tuban. Jl. Veteran No. 12, Tuban.</p>
+        <p>Kontak: 0812-3456-7890 | Email: info@batiktuban.com</p>
+    </footer>
+
+</body>
+</html>
